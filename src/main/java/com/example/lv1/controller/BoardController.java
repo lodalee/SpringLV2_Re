@@ -43,7 +43,9 @@ public class BoardController {
                                         @RequestBody BoardRequestDto requestDto,
                                         HttpServletRequest request){
        User user = (User) request.getAttribute("user");
-       return boardService.updateBoard(id, requestDto, user);
+       boardService.updateBoard(id, requestDto, user);
+
+       return new MessageResponseDto("게시글 수정 성공");
     }
 
     //게시글 삭제
@@ -52,6 +54,7 @@ public class BoardController {
                                           HttpServletRequest request){
         User user = (User) request.getAttribute("user");
         boardService.deleteBoard(id, user);
+        
         return new MessageResponseDto("게시글 삭제 성공");
     }
 }
