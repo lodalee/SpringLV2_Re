@@ -45,7 +45,7 @@ public class BoardService {
         Board board = findBoard(id);
 
         if (!(board.getUsername().equals(user.getUsername()))){
-            new IllegalArgumentException("작성자만 수정할 수 있습니다.");
+           throw new IllegalArgumentException("작성자만 수정할 수 있습니다.");
         }
 //        //username 확인
 //        if (!board.getUsername().equals(requestDto.getUsername())){
@@ -66,7 +66,7 @@ public class BoardService {
         Board board = findBoard(id);
 
         if (!(board.getUsername().equals(user.getUsername()))){
-            new IllegalArgumentException("작성자만 삭제할 수 있습니다.");
+            throw new IllegalArgumentException("작성자만 삭제할 수 있습니다.");
         }
 //        //비밀번호 확인
 //        if(!board.getPassword().equals(requestDto.getPassword())){
